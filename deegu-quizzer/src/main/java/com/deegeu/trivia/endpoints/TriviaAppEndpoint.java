@@ -75,7 +75,7 @@ public class TriviaAppEndpoint {
 
         // build response       
         List<TriviaQuestion> list = dataAccess.getQuestionList(start);
-        return Response.ok()
+        return Response.ok(list)
                 .header("question-count", datasetSize)
                 .header("current-question-list-size", list.size())
                 .header("offset", start)
@@ -91,7 +91,7 @@ public class TriviaAppEndpoint {
     @Produces(MediaType.APPLICATION_JSON)
     public Response getQuestionCount(@Context UriInfo uri) {
         long numberOfQuestions = dataAccess.getQuestionListSize();
-        return Response.ok()
+        return Response.ok(numberOfQuestions)
                 .header("question-count", numberOfQuestions)
                 .lastModified(new Date())
                 .location(uri.getRequestUri())

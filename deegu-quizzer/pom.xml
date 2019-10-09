@@ -18,6 +18,8 @@
         <maven.compiler.target>1.8</maven.compiler.target>
         <version.thorntail>2.5.0.Final</version.thorntail>
         <failOnMissingWebXml>false</failOnMissingWebXml>
+        
+        <fabric8.generator.from>registry.access.redhat.com/redhat-openjdk-18/openjdk18-openshift:latest</fabric8.generator.from>    
     </properties>
 
     <dependencies>
@@ -29,19 +31,24 @@
         </dependency>
         <dependency>
             <groupId>io.thorntail</groupId>
-            <artifactId>bom</artifactId>
-            <version>${version.thorntail}</version>
-            <scope>compile</scope>
-            <type>pom</type>
-        </dependency>    
-        <dependency>
-            <groupId>io.thorntail</groupId>
             <artifactId>jaxrs</artifactId>
-            <version>2.5.0.Final</version>
         </dependency>
     </dependencies>
 
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>io.thorntail</groupId>
+                <artifactId>bom</artifactId>
+                <version>${version.thorntail}</version>
+                <scope>import</scope>
+                <type>pom</type>
+            </dependency>    
+        </dependencies>
+    </dependencyManagement>
+
     <build>
+        <finalName>quizzer-endpoint</finalName>
         <pluginManagement>
             <plugins>
                 <plugin>
