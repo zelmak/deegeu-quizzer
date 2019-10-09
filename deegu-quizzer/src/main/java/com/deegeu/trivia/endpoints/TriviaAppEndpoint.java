@@ -1,5 +1,8 @@
-package com.deegeu;
+package com.deegeu.trivia.endpoints;
 
+import com.deegeu.trivia.model.TriviaQuestion;
+import com.deegeu.trivia.model.TriviaQuestionAccessible;
+import com.deegeu.trivia.model.TriviaQuestionArrayAccess;
 import java.util.Date;
 import java.util.List;
 import javax.ws.rs.DefaultValue;

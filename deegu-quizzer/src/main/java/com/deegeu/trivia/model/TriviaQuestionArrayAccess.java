@@ -1,4 +1,4 @@
-package com.deegeu;
+package com.deegeu.trivia.model;
 
 import java.util.ArrayList;
 import java.util.Date;

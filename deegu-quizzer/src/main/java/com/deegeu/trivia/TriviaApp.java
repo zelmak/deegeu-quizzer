@@ -1,4 +1,4 @@
-package com.deegeu;
+package com.deegeu.trivia;
 
 import java.util.Date;
 import javax.ws.rs.ApplicationPath;
