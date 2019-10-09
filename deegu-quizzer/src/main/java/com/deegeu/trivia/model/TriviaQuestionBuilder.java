@@ -19,7 +19,19 @@ public class TriviaQuestionBuilder {
     }
 
     TriviaQuestion build() {
-        TriviaQuestion built = new TriviaQuestion(this.id, this.answerA, this.answerB, this.answerB, this.answerC, this.answerD, this.correctAnswer, this.hint, this.lastUpdated);
+        if ((id < 0) 
+                || ("".equals(this.question) || this.question.trim().isEmpty())
+                || ("".equals(this.answerA) || this.answerA.trim().isEmpty())
+                || ("".equals(this.answerB) || this.answerB.trim().isEmpty())
+                || ("".equals(this.answerC) || this.answerC.trim().isEmpty())
+                || ("".equals(this.answerD) || this.answerD.trim().isEmpty())
+                || ("".equals(this.correctAnswer) || this.correctAnswer.trim().isEmpty())
+                || ("".equals(this.hint) || this.hint.trim().isEmpty())
+                || (this.lastUpdated == null)
+                ) {
+            throw new IllegalStateException("TriviaQuestion builder not in buildable state.");
+        }
+        TriviaQuestion built = new TriviaQuestion(this.id, this.question, this.answerA, this.answerB, this.answerC, this.answerD, this.correctAnswer, this.hint, this.lastUpdated);
         return built;
     }
 
@@ -86,7 +98,7 @@ public class TriviaQuestionBuilder {
     }
     
     TriviaQuestionBuilder lastUpdated(Date lastUpdated) {
-        if (lastUpdated != null) {
+        if (lastUpdated == null) {
             throw new IllegalArgumentException("lastUpdated cannot be empty");
         }
         this.lastUpdated = lastUpdated;

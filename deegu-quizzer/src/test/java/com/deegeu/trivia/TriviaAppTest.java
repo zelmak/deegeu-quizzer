@@ -1,20 +1,18 @@
 package com.deegeu.trivia;
 
-import org.junit.Test;
+import org.junit.*;
 import static org.junit.Assert.*;
 
 /**
- *
- * @author Brad
+ * Unit test for simple TriviaApp.
  */
 public class TriviaAppTest {
 
-    public TriviaAppTest() {
-    }
-
+    /**
+     * Rigorous Test :-)
+     */
     @Test
-    public void testApp() throws Exception {
+    public void testApp() {
         assertTrue(true);
     }
-
 }
